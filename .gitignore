@@ -14,3 +14,5 @@ src/main/resources/database.properties
 *.ipr
 
 .idea/dataSources.xml
+*.class
+.idea/
