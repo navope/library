@@ -1,20 +1,34 @@
 package ru.navope.rento.models;
 
-import org.springframework.stereotype.Component;
-
-import javax.validation.constraints.NotEmpty;
-
-
 public class Book {
-
+    private int id;
     private String name;
     private String author;
     private String year;
+    private int personId;
 
-    public Book(String name, String author, String year) {
+    public Book(int id ,String name, String author, String year, int personId) {
+        this.id = id;
         this.name = name;
         this.author = author;
         this.year = year;
+        this.personId = personId;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(int personId) {
+        this.personId = personId;
     }
 
     public Book() {

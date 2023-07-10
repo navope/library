@@ -1,17 +1,25 @@
 package ru.navope.rento.models;
 
-import org.springframework.stereotype.Component;
-
 public class Person {
+    private int id;
     private String fullName;
     private int yearBirth;
 
-    public Person(String fullName, int yearOfBirth) {
+    public Person(int id, String fullName, int yearBirth) {
+        this.id = id;
         this.fullName = fullName;
-        this.yearBirth = yearOfBirth;
+        this.yearBirth = yearBirth;
     }
 
     public Person() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getFullName() {
@@ -22,11 +30,11 @@ public class Person {
         this.fullName = fullName;
     }
 
-    public int getYearOfBirth() {
+    public int getYearBirth() {
         return yearBirth;
     }
 
-    public void setYearOfBirth(int yearOfBirth) {
-        this.yearBirth = yearOfBirth;
+    public void setYearBirth(int yearBirth) {
+        this.yearBirth = yearBirth;
     }
 }

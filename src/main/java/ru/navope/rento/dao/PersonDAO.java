@@ -1,6 +1,7 @@
 package ru.navope.rento.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import ru.navope.rento.models.Person;
@@ -17,23 +18,26 @@ public class PersonDAO {
     }
 
     public List<Person> getPeople(){
-        return null;
+        return jdbcTemplate.query("select * from person", new BeanPropertyRowMapper<>(Person.class));
     }
 
     public Person getPerson(int id){
-        return null;
+        return jdbcTemplate.query("select * from person where id = ?",new Object[]{id},
+                new BeanPropertyRowMapper<>(Person.class)).stream().findAny().orElse(null);
     }
 
-    public void save(){
-
+    public void save(Person person){
+        jdbcTemplate.update("insert into person(full_name, year_birth) values(?, ?)",
+                person.getFullName(), person.getYearBirth());
     }
 
-    public void update(Person person, int id){
-
+    public void update(Person updatePerson, int id){
+        jdbcTemplate.update("update person set full_name=?, year_birth=? where id=?",
+                updatePerson.getFullName(), updatePerson.getYearBirth(), id);
     }
 
     public void delete(int id){
-
+        jdbcTemplate.update("delete from person where id = ?",id);
     }
 
 }
