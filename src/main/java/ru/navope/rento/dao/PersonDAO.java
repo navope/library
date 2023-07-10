@@ -5,6 +5,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import ru.navope.rento.models.Person;
 
+import java.util.List;
+
 @Component
 public class PersonDAO {
 
@@ -14,11 +16,24 @@ public class PersonDAO {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    public List<Person> getPeople(){
+        return null;
+    }
+
     public Person getPerson(int id){
         return null;
+    }
+
+    public void save(){
+
+    }
+
+    public void update(Person person, int id){
+
     }
 
     public void delete(int id){
 
     }
+
 }
