@@ -57,19 +57,13 @@ public class PeopleController {
     @GetMapping()
     public String showPeople(Model model){
         model.addAttribute("people", personDAO.getPeople());
-        return "people/showAll";
+        return "people/showPeople";
     }
 
     @GetMapping("/{id}")
     public String showPerson(Model model, @PathVariable("id") int id){
         model.addAttribute("person", personDAO.getPerson(id));
+        model.addAttribute("books", bookDAO.getPersonBooks(id));
         return "people/show";
-    }
-
-    @GetMapping("/{id}/books")
-    public String getPersonBooks(Model model, @PathVariable("id") int id){
-        model.addAttribute("person", personDAO.getPerson(id));
-        model.addAttribute("books", bookDAO.getBooks());
-        return "people/books";
     }
 }
