@@ -30,13 +30,17 @@ public class BookDAO {
                 new BeanPropertyRowMapper<>(Book.class));
     }
     public void save(Book book){
-        jdbcTemplate.update("insert into book(name, author, year, person_id) values(?, ?, ?, ?)",
-                book.getName(), book.getAuthor(), book.getYear(), book.getPersonId());
+        jdbcTemplate.update("insert into book(name, author, year) values(?, ?, ?)",
+                book.getName(), book.getAuthor(), book.getYear());
     }
 
     public void update(Book updateBook, int id){
-        jdbcTemplate.update("update book set name=?, author=?, year=?, person_id=? where id=?",
-                updateBook.getName(), updateBook.getAuthor(), updateBook.getYear(), updateBook.getPersonId(), id);
+        jdbcTemplate.update("update book set name=?, author=?, year=? where id=?",
+                updateBook.getName(), updateBook.getAuthor(), updateBook.getYear(), id);
+    }
+
+    public void toFree(int id){
+        jdbcTemplate.update("update book set person_id=NULL where id=?",id);
     }
 
     public void delete(int id){
