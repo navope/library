@@ -5,6 +5,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import ru.navope.rento.models.Book;
+import ru.navope.rento.models.Person;
 
 import java.util.List;
 
@@ -37,6 +38,12 @@ public class BookDAO {
     public void update(Book updateBook, int id){
         jdbcTemplate.update("update book set name=?, author=?, year=? where id=?",
                 updateBook.getName(), updateBook.getAuthor(), updateBook.getYear(), id);
+    }
+
+    public Person getPerson(int id){
+        return jdbcTemplate.query("select person.id, person.full_name, person.full_name from book join person " +
+                        "on book.person_id=person.id where book.id=?", new Object[]{id},
+                new BeanPropertyRowMapper<>(Person.class)).stream().findAny().orElse(null);
     }
 
     public void toFree(int id){

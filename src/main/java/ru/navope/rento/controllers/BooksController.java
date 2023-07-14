@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.navope.rento.dao.BookDAO;
 import ru.navope.rento.dao.PersonDAO;
 import ru.navope.rento.models.Book;
+import ru.navope.rento.models.Person;
 
 import javax.validation.Valid;
 
@@ -63,8 +64,9 @@ public class BooksController {
     @GetMapping("/{id}")
     public String showBook(Model model, @PathVariable("id") int id){
         Book book = bookDAO.getBook(id);
+        Person person = bookDAO.getPerson(id);
         model.addAttribute("book", book);
-        model.addAttribute("person", personDAO.getPerson(book.getPersonId()));
+        model.addAttribute("person", person);
         return "books/show";
     }
 

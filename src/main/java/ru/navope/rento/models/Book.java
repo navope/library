@@ -5,9 +5,9 @@ public class Book {
     private String name;
     private String author;
     private int year;
-    private int personId;
+    private Integer personId;
 
-    public Book(int id ,String name, String author, int year, int personId) {
+    public Book(int id ,String name, String author, int year, Integer personId) {
         this.id = id;
         this.name = name;
         this.author = author;
@@ -27,9 +27,9 @@ public class Book {
         return personId;
     }
 
-    public void setPersonId(int personId) {
-        this.personId = personId;
-    }
+//    public void setPersonId(Integer personId) {
+//        this.personId = personId;
+//    }
 
     public Book() {
     }
