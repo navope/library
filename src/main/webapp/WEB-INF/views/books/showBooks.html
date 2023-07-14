@@ -11,8 +11,9 @@
        th:text="${book.getName() + ', ' + book.getAuthor()}">book</a>
 </div>
 
-
-<a href="/books/new">Create new book</a>
+<form th:method="GET" th:action="@{/people/new}">
+    <input type="submit" value="Create new book"/>
+</form>
 
 </body>
 </html>

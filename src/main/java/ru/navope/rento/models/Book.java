@@ -27,9 +27,9 @@ public class Book {
         return personId;
     }
 
-//    public void setPersonId(Integer personId) {
-//        this.personId = personId;
-//    }
+    public void setPersonId(Integer personId) {
+        this.personId = personId;
+    }
 
     public Book() {
     }
