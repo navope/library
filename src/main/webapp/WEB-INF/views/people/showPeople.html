@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>People</title>
@@ -11,8 +11,16 @@
         th:text="*{person.getFullName() + ', ' + person.getYearBirth()}">user</a>
 </div>
 
+<hr/>
+
 <form th:method="GET" th:action="@{/people/new}">
     <input type="submit" value="Create new person"/>
+</form>
+
+<br/>
+
+<form th:method="GET" th:action="@{/}">
+    <input type="submit" value="Start page"/>
 </form>
 
 </body>
