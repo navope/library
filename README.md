@@ -1,2 +1,9 @@
 # library
-Чтобы запустить проект, вам нужно создать базу данных в PostgreSQL, подключить ее к intellij idea. Затем заполнить файл database.properties.origin из папки src/resoures и изменить его название на database.properties
+Чтобы запустить проект, вам нужно:
+
+1)Создать базу данных в PostgreSQL, подключить ее к intellij idea, при подключении запишите URL, password и username. Затем заполнить файл database.properties.origin из папки src/resoures и изменить его название на database.properties. Если вы используете PostgreSQL, то driver=org.postgresql.Driver.
+Так же нужно создать таблицы, используя SQL-команды из файла sqlQuery.sql.
+
+2)Настроить запуск приложения в intellij idea.
+Для этого добавьте Tomcat Server Local версии ниже 10, далее нажмите 'Fix' и выберите war exploded, в ячейке 'Application context' выставите пустую стоку. Далее нажмите 'Apply', замем 'OK'.
+
