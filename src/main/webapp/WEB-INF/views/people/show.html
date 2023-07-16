@@ -26,8 +26,17 @@
     <input type="submit" value="Edit"/>
 </form>
 
+<br/>
+
 <form th:method="DELETE" th:action="@{/people/{id}(id=${person.getId()})}">
     <input type="submit" value="Delete"/>
 </form>
+
+<br/>
+
+<form th:method="GET" th:action="@{/}">
+    <input type="submit" value="Start page"/>
+</form>
+
 </body>
 </html>
