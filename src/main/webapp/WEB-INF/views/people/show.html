@@ -5,7 +5,7 @@
     <title>Show</title>
 </head>
 <body>
-<p th:text="${person.getId()} + ', ' + ${person.getFullName()} + ', ' + ${person.getYearBirth()}">VALUE</p>
+<p th:text="${person.getFullName()} + ', ' + ${person.getYearBirth()}">VALUE</p>
 
 <div th:if="${books.isEmpty()}">
     <p>The man has not yet taken a single book</p>

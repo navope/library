@@ -1,10 +1,23 @@
 package ru.navope.rento.models;
 
+import javax.validation.constraints.*;
+
 public class Book {
     private int id;
+
+    @NotEmpty(message = "Book's name should not be empty")
+    @Pattern(regexp = "[A-Z][A-Za-z]*.*", message = "The first word of the book title begins with a " +
+            "capital letter and consists only of letters, and all subsequent characters can be any")
     private String name;
+
+    @NotEmpty(message = "Author's name should not be empty")
+    @Pattern(regexp = "[A-Z]\\w+ [A-Z]\\w+", message = "The author's name should consist only of letters " +
+            "and match such a pattern: 'Name Surname'")
     private String author;
+
+    @Min(value = 1,message = "Year must be greater than 0")
     private int year;
+
     private Integer personId;
 
     public Book(int id ,String name, String author, int year, Integer personId) {
